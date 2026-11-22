@@ -1,0 +1,5 @@
+# Runtime state (messages, replies, logs) if it is ever placed in the repo.
+/.voice-bridge/
+messages/
+replies/
+log/

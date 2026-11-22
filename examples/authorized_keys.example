@@ -1,0 +1,17 @@
+# Example line for ~/.ssh/authorized_keys.
+#
+# Give the bridge its own key, used by nothing else. Each option below narrows
+# what the key can do. Put everything on ONE line (wrapped here only to read).
+# Replace the placeholders:
+#   from=         the address or range the device connects from
+#   command=      the absolute path to bridge.sh on this machine
+#   ssh-ed25519   your device's public key
+#   the comment   a label for the device, so you can find the key to revoke it
+#
+# OpenSSH 7.2 and newer. "restrict" turns off pty, port forwarding, X11
+# forwarding and agent forwarding, then command= forces the bridge:
+restrict,from="203.0.113.10",command="/home/youruser/voice-to-claude-code-ssh-bridge/bridge.sh" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAExampleKeyReplaceMe phone
+
+# OpenSSH older than 7.2 has no "restrict" keyword. Spell the restrictions out
+# instead (one line):
+# no-pty,no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-user-rc,from="203.0.113.10",command="/home/youruser/voice-to-claude-code-ssh-bridge/bridge.sh" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAExampleKeyReplaceMe phone
